@@ -18,10 +18,6 @@ announcements:
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
 
-latest_posts:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
 ---
 
 I am an MEng graduate in Mechanical Engineering from Imperial College London, currently seeking to further enhance my research expertise in preparation for pursuing a PhD in the field of Social Robotics, with a particular focus on applications in education and healthcare.
