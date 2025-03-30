@@ -1,81 +1,56 @@
 ---
 layout: page
-title: project 1
-description: with background image
-img: assets/img/12.jpg
+title: MNIST Digit Classifier
+description: Personal project to build a small, end-to-end application on a self-managed server by building, containerizing and deploying an MNIST digit classifier.
+img: assets/img/MNIST.png
 importance: 1
 category: work
-related_publications: true
+related_publications: false
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+## 1. Developing Pytorch model
+This will be trained locally, and with the MNIST dataset, a high level of accuracy ~95% should be achievable. I will develop a couple of models (a simple neural network and a convolutional neural network), just to play around and get familiar with Pytorch.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+### Progress
+- Normalising the data according to MNIST dataset
+- Created a Simple Linear NN and achieved 97.33% accuracy on the MNIST dataset 
+- Created a Convolutional NN and achieved 98.42% accuracy - ConvNets are better for Image processing
+  
+### Improvements
+- Write a predict function for easy implementation for the Streamlit section
+- Save various models for loading into the Streamlit
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+![image](https://github.com/user-attachments/assets/4ce0063d-1117-4b27-ba88-94ce45800f05)
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+![image](https://github.com/user-attachments/assets/e0a56930-5aa3-4c9d-8dfb-d9995dba79b3)
 
-You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
-Say you wanted to write a bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+## 2. Creating an Interactive Front-End
+I will create a web interface (Streamlit) so that users can draw a digit on a canvas or input area that will be input into the model, obtaining the prediction, confidence and receive the true label to gather feedback.
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+### Progress
+- Have created the drawable canvas and preprocessed the resulting image
+- Have implemented the model to make predictions on the image and return the prediction and confidence in the prediction
 
-{% raw %}
+### Improvements
+- Create sections to allow results back from different models for the same image to compare predictions
+- Improve the readability / layout
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
 
-{% endraw %}
+
+https://github.com/user-attachments/assets/f9194d9e-38d4-4b02-bc63-45bd8292111a
+
+## 3. Logging the attempts into a PostgreSQL database
+Each time a prediction is made, the details are logged into a PostgreSQL database, including the timestamp, predicted digit, user-provided true label, confidence and, if the predicted digit does not match the true label, then the second highest probability guess is also recorded.
+
+![image](https://github.com/user-attachments/assets/5612cda4-962c-4726-b835-e5daeb6754c0)
+
+It is also important to note that while the Pytorch models performed well with high accuracy on the test dataset, we are extrapolating by using that model on the images provided by the drawable canvas. While normalised in the same way, there is a clear discrepancy between how the model performs on the images provided by the web interface. Further inspection of the database will likely reveal where the discrepancies are. 
+
+# Left to do
+
+## 4. Containerization
+The Pytorch model/service, Streamlit web app and PostgreSQL databas will be containerized into Docker. Docker Compose will then me used to define the multi-container setup in a docker-compose.yml file.
+
+## 5. Deployment
+The deployment end-to-end will be controlled on a self-managed server where Docker can be installed. The containerized application will then be deployed to this server which will then be made accessible via a public IP or domain.
