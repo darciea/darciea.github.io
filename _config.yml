@@ -54,7 +54,7 @@ posts_in_search: false
 bib_search: false
 
 # Dimensions
-max_width: 800px
+max_width: 750px
 
 # TODO: add layout settings (single page vs. multi-page)
 
@@ -150,6 +150,7 @@ exclude:
   - _pages/dropdown.md
   - _pages/teaching.md
   - _pages/profiles.md
+  - _pages/repositories.md
 keep_files:
   - CNAME
   - .nojekyll
