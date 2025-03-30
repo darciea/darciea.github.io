@@ -96,12 +96,12 @@ newsletter:
 # -----------------------------------------------------------------------------
 
 collections:
-  books:
-    output: true
-  news:
-    defaults:
-      layout: post
-    output: true
+#  books:
+#    output: true
+#  news:
+#    defaults:
+#      layout: post
+#    output: true
   projects:
     output: true
 
@@ -146,6 +146,10 @@ exclude:
   - vendor
   - _pages/blog.md
   - assets/jupyter/blog.ipynb
+  - _pages/publications.md
+  - _pages/dropdown.md
+  - _pages/teaching.md
+  - _pages/profiles.md
 keep_files:
   - CNAME
   - .nojekyll
