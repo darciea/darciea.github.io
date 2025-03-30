@@ -23,9 +23,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
+        },{id: "projects-mnist-digit-classifier",
+          title: 'MNIST Digit Classifier',
+          description: "Personal project to build a small, end-to-end application on a self-managed server by building, containerizing and deploying an MNIST digit classifier.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project.html";
             },},{id: "projects-project-2",
