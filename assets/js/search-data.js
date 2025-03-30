@@ -11,7 +11,7 @@ ninja.data = [{
     },
   },{id: "nav-projects",
           title: "projects",
-          description: "A growing collection of your cool projects.",
+          description: "Here are the technical projects I&#39;ve done to date.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
@@ -28,9 +28,9 @@ ninja.data = [{
           description: "Personal project to build a small, end-to-end application on a self-managed server by building, containerizing and deploying an MNIST digit classifier.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project.html";
-            },},{id: "projects-project-2",
-          title: 'project 2',
-          description: "a project with a background image and giscus comments",
+            },},{id: "projects-me4-introduction-to-robotics",
+          title: 'ME4 Introduction to Robotics',
+          description: "Coursework completed",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_project.html";
             },},{id: "projects-project-3-with-very-long-name",
