@@ -4,7 +4,7 @@ title: MNIST Digit Classifier
 description: Personal project to build a small, end-to-end application on a self-managed server by building, containerizing and deploying an MNIST digit classifier.
 img: assets/img/MNIST.png
 importance: 1
-category: work
+category: current
 related_publications: false
 ---
 
