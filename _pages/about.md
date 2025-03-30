@@ -17,7 +17,6 @@ announcements:
   enabled: false # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
-
 ---
 
 I am an MEng graduate in Mechanical Engineering from Imperial College London, currently seeking to further enhance my research expertise in preparation for pursuing a PhD in the field of Social Robotics, with a particular focus on applications in education and healthcare.
