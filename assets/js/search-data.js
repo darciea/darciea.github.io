@@ -28,9 +28,9 @@ ninja.data = [{
           description: "Personal project to build a small, end-to-end application on a self-managed server by building, containerizing and deploying an MNIST digit classifier.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project.html";
-            },},{id: "projects-me4-introduction-to-robotics",
-          title: 'ME4 Introduction to Robotics',
-          description: "Coursework completed",
+            },},{id: "projects-robotics-manipulator",
+          title: 'Robotics Manipulator',
+          description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_project.html";
             },},{id: "projects-fetal-movement-monitor",
@@ -53,9 +53,9 @@ ninja.data = [{
           description: "Awarded Arup Prize for most meritorious 3rd year project.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/6_project.html";
-            },},{id: "projects-project-7",
-          title: 'project 7',
-          description: "with background image",
+            },},{id: "projects-computer-vision-robot-locomotion",
+          title: 'Computer Vision + Robot Locomotion',
+          description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/7_project.html";
             },},{id: "projects-project-8",
