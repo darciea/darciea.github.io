@@ -1,80 +1,39 @@
 ---
 layout: page
-title: project 5
-description: a project with a background image
+title: Energy Saving Automatic Streetlights
+description:
 img: assets/img/1.jpg
 importance: 3
-category: fun
+category: previous
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+## Learning outcomes
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+The principal learning objectives for this project are:
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+- Implement a working microprocessor based system to achieve a more complex real world task
+- Develop ability to independently plan, organise and structure your code
+- Improve grasp of the C language and writing your own functions
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+## Brief
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+Outside lights that respond to ambient light levels are commonplace (i.e. street lights, porch lights, garden lights etc). These types of lights switch on at dusk and then turn off at dawn. However, energy and money can be saved if these lights are switched off during the small hours of the morning (for example, between 1am and 5am), when there are very few people around. Many councils in the UK have implemented/trialled this idea for street lights (https://www.bbc.co.uk/news/uk-england-derbyshire-16811386). Your task is to use the knowledge of microcontrollers and hardware that you have gained in labs 1-3 from this module to develop a fully automated solution.
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+## Specification
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+Design and program a device that meets the following requirements:
 
-{% raw %}
+1. Monitors light level with the LDR and turns on an LED in low light conditions (i.e. night-time) and off in bright conditions (i.e. daytime)
+1. Displays the current hour of day on the LED array in binary
+1. Turns the light off between approx. 1am and 5am
+1. Adjusts for daylight savings time
+1. Maintain synchronicity with the sun indefinitely
+1. Be fully automatic (requires zero maintenance after installation)
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
+## Our solution
 
-{% endraw %}
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/prrxO2kyVkE/0.jpg)](https://www.youtube.com/watch?v=prrxO2kyVkE)
+
+This program relies on the fact that the sun rises and sets exactly once a day (ie a major eclipse may cause problems), and that it is dark at midnight (ie sunset occurs before midnight). This program should be initiated before the sun rises on the day to avoid difficulties. Potential issues may also arise if the timer is 2 hours or more out of sync with the solar clock on the day when the clocks are changing due to entering or exiting DST.
+
+To correctly start the program, you must first manually initialise the day (0 = Sunday, 6 = Saturday), the day of the month, the month and the year, and whether we are in DST or not in the main.c file, and the hour and minute should be set in the interrupts.h file.
