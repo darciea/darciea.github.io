@@ -25,7 +25,7 @@ ninja.data = [{
           },
         },{id: "projects-mnist-digit-classifier",
           title: 'MNIST Digit Classifier',
-          description: "Personal project to build a small, end-to-end application on a self-managed server by building, containerizing and deploying an MNIST digit classifier.",
+          description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project.html";
             },},{id: "projects-robotics-manipulator",
