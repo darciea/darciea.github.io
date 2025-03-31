@@ -7,16 +7,11 @@
       description:
         - First Class Honours
         - "Relevant modules: Advanced Control (81%), Introduction to Robotics (81%), Future Clean Transport Technology (73%), Human Neuromechanical Control and Learning (67%), Machine Learning (66%)"
-        - Successfully completed several team projects, developing products from initial ideation to delivery, demonstrating skills and competencies in project management, teamwork, and engineering design.
-        - Independently compiled multiple lab reports, analysed experimental data, and effectively communicated results, culminating in a Master’s dissertation.
-        - Paused studies for family reasons, pursued diverse skills, clarified career interests, and returned to studies with increased confidence and stronger academic performance.
     - title: Wimbledon High School
       institution: Wimbledon High School, London
       year: 2012 - 2019
       description:
         - Awarded GDST Lorna Cocking Scholarship and HSBC Scholarship
-        - "A Levels: Maths (A*), Further Maths (A), Physics (A), Chemistry (A)"
-        - "GCSEs: 10 A*s (including Maths and Science) and an FSMQ (Additional Maths)"
 
 - title: Engineering Projects
   type: time_table
@@ -25,16 +20,10 @@
       year: Present
       description:
         - Building, containerizing, and deploying a simple digit recognizer trained on the MNIST dataset.
-        - Trained PyTorch models locally, achieving an accuracy of 98.42% using CNNs.
-        - Developed a Streamlit web app where users can draw a digit, submit it, and receive a prediction with confidence scores. Users can also provide true labels for data collection.
-        - Logged the timestamp, predictions, true label from the Streamlit web app into a PostgreSQL database.
-        - "Next steps: Containerizing the PyTorch model, Streamlit app, and database using Docker, and deploying to a self-managed server with public access."
     - title: MEng Individual Project - A Wearable Sensor to Measure Fetal Movements
       year: 2023-2024
       description:
         - Clinically validated a novel multi-modal wearable fetal movement monitor developed by the Imperial College Biomechatronics lab, enabling accurate at-home monitoring.
-        - Conducted high-quality data collection from over 50 pregnant participants, integrating real-time ultrasound observations to enhance dataset reliability.
-        - Applied supervised learning with a transformer-based model using TensorFlow to perform binary classification of fetal movements, improving distinction and detection accuracy.
     - title: Introduction to Robotics Projects
       year: 2023-2024
       description:
@@ -45,8 +34,6 @@
       description:
         - Awarded Arup Prize for Third Year Group Project.
         - Designed a menstrual product testing rig to address the lack of safety standards surrounding menstrual products and serve as a new regulated standard.
-        - Served as the Mechatronics Lead, responsible for designing and implementing the control system to maintain body temperature.
-        - Produced a Testing and Analysis report, evaluating the rig’s performance, and suggesting improvements, showcasing strong analytical, documentation, and communication skills.
 
 - title: Professional Development
   type: time_table
@@ -56,7 +43,6 @@
       year: September 2023
       description:
         - "Completed a four-course specialization consisting of: Introduction to Self-Driving Cars, State Estimation and Localization, Visual Perception, and Motion Planning."
-        - Gained practical knowledge of the technologies and algorithms used in autonomous vehicles, with a focus on sensor integration, navigation, and decision-making systems.
     - title: Introduction to Programming the Internet of Things Specialization
       institution: University of California, Irvine
       year: August 2023
@@ -75,9 +61,7 @@
       institution: Keren’s Nursery
       year: 2022-2024
       description:
-        - Undertook a full-time role during a pause from studies, gaining valuable soft skills through experience in a contrasting employment sector.
-        - Worked with young children, demanding constant patience, adaptability, and the ability to manage dynamic situations, including ensuring safety in unpredictable scenarios.
-        - "Key skills developed: effective communication, keen attention to detail, teamwork, problem-solving, and ethical decision-making."
+        - Undertook a full-time role during a pause from studies, gaining valuable soft skills through experience in a contrasting employment sector
     - title: Physics Teaching Internship
       institution: Department for Education
       year: July 2023
@@ -96,3 +80,4 @@
   contents:
     - <u>Languages:</u> English, Tamil, Spanish
     - <u>Hobbies:</u> Salsa and Bachata Dance, Cycling
+
