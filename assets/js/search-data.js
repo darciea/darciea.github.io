@@ -25,37 +25,37 @@ ninja.data = [{
           },
         },{id: "projects-mnist-digit-classifier",
           title: 'MNIST Digit Classifier',
-          description: "",
+          description: "Personal project to build, containerize and deploy an MNIST digit classifier.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project.html";
             },},{id: "projects-robotics-manipulator",
           title: 'Robotics Manipulator',
-          description: "",
+          description: "Designing a 3 DoF manipulator and deriving its kinematics.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_project.html";
             },},{id: "projects-fetal-movement-monitor",
           title: 'Fetal Movement Monitor',
-          description: "A Wearable Sensor to Measure Fetal Movements",
+          description: "Master&#39;s Project on a multi-modal sensor device to recognise fetal movements using machine learning.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_project.html";
             },},{id: "projects-autonomous-mine-navigating-robot",
           title: 'Autonomous Mine Navigating Robot',
-          description: "Mine Navigation Search and Rescue",
+          description: "Programming a robot to navigate a maze using the PIC18F microcontroller.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/4_project.html";
             },},{id: "projects-energy-saving-automatic-streetlights",
           title: 'Energy Saving Automatic Streetlights',
-          description: "",
+          description: "Implementing a working microprocessor based system to simulate automated streetlights.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/5_project.html";
             },},{id: "projects-menstrual-product-testing-rig",
           title: 'Menstrual Product Testing Rig',
-          description: "Awarded Arup Prize for most meritorious 3rd year project.",
+          description: "Design, make and test project to develop a rig to test menstrual products in a representative and replicable manner.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/6_project.html";
-            },},{id: "projects-computer-vision-robot-locomotion",
-          title: 'Computer Vision + Robot Locomotion',
-          description: "",
+            },},{id: "projects-robotic-vision",
+          title: 'Robotic vision',
+          description: "Extracting path features from a spatial map and navigate a mobile car.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/7_project.html";
             },},{id: "projects-project-8",
