@@ -1,7 +1,7 @@
 ---
 layout: page
 title: MNIST Digit Classifier
-description: Personal project to build a small, end-to-end application on a self-managed server by building, containerizing and deploying an MNIST digit classifier.
+description:
 img: assets/img/MNIST.png
 importance: 1
 category: current
@@ -13,6 +13,8 @@ related_publications: false
         {% include figure.liquid loading="eager" path="assets/img/MNIST.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
+
+Personal project to build a small, end-to-end application on a self-managed server by building, containerizing and deploying an MNIST digit classifier.
 
 ## 1. Developing Pytorch model
 

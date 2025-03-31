@@ -2,7 +2,7 @@
 layout: page
 title: Fetal Movement Monitor
 description: A Wearable Sensor to Measure Fetal Movements
-img: assets/img/Lady.png
+img: assets/img/Lady.jpg
 importance: 3
 category: previous
 ---

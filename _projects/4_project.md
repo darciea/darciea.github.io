@@ -2,7 +2,7 @@
 layout: page
 title: Autonomous Mine Navigating Robot
 description: Mine Navigation Search and Rescue
-img:
+img: assets/img/maze.jpg
 importance: 3
 category: previous
 ---

@@ -2,7 +2,7 @@
 layout: page
 title: Energy Saving Automatic Streetlights
 description:
-img: assets/img/1.jpg
+img: assets/img/streetlight.jpg
 importance: 3
 category: previous
 ---

@@ -2,7 +2,7 @@
 layout: page
 title: Computer Vision + Robot Locomotion
 description:
-img: assets/img/4.jpg
+img: assets/img/compvis.jpg
 importance: 1
 category: previous
 related_publications: false

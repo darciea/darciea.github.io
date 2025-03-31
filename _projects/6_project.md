@@ -2,7 +2,7 @@
 layout: page
 title: Menstrual Product Testing Rig
 description: Awarded Arup Prize for most meritorious 3rd year project.
-img: assets/img/Brochure.png
+img: assets/img/menstrual.jpg
 importance: 4
 category: previous
 ---
