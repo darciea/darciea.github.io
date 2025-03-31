@@ -1,81 +1,61 @@
 ---
 layout: page
-title: project 7
-description: with background image
+title: Computer Vision + Robot Locomotion
+description:
 img: assets/img/4.jpg
 importance: 1
-category: work
-related_publications: true
+category: previous
+related_publications: false
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+This project extends the first assignment by integrating computer vision and mobile robot locomotion. The goal is to extract path features from a spatial map and navigate a mobile car with an onboard manipulator along a specified route.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+## Requirements
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+<img src="https://github.com/user-attachments/assets/897a634e-27cb-4da5-9869-7ca906f1ec6a" width="500">
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+- **Path & Markers:**
 
-You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
-Say you wanted to write a bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+  - Start (A) and end (B) points are marked in blue.
+  - Road path is outlined in red.
+  - Final target (C) is marked in green; the manipulator must reach it.
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+- **Mobile Robot Design:**
+  - Car can have any wheels and actuators.
+  - Should not exceed one-quarter of the road width.
+  - Wheel diameters are of your choice.
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+## Tasks
 
-{% raw %}
+1. **Path Identification:** Detect three markers (A, B, and C) and extract road boundaries.
+2. **Car Navigation:**
+   - Position the car at point A.
+   - Actuate wheels to follow the path to point B.
+3. **Manipulator Activation:**
+   - At point B, move the manipulator to reach the green target (C) at any feasible altitude.
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
+## My Solution
 
-{% endraw %}
+Given the original image, a close examination of the greyscale image reveals that the image is overexposed, making distinction of the markers difficult, especially the green marker that blends in with the rest of the spatial map once in grayscale.
+
+<img src="https://github.com/user-attachments/assets/498f296f-626d-43a3-b6b9-6836c8d4833c" width="500">
+
+Redistribution of the grey levels results in Figure 2 which makes it much easier to select the sections of interest from the image, as the markers are now quite clearly the darkest parts of the entire image.
+
+<img src="https://github.com/user-attachments/assets/98fd526f-64ba-45b5-9d0c-ad0ec5a264da" width="500">
+
+<img src="https://github.com/user-attachments/assets/1e78b9e4-3fe3-46a2-b03b-7bfb48b54025" width="250">
+
+In selecting the darkest grey levels, other shapes are also chosen, and thus to further extract the markers alone, their circular nature comes into play. Here erosion followed by dilation is performed, to extract solely the markers, and then to restore them to their original size.
+
+<img src="https://github.com/user-attachments/assets/cf70cbfc-f337-4500-86ea-52522a3db9e5" width="500">
+
+The path to be taken is shown to be within the two red lines in the original picture. Obtaining the red lines is not a difficult task as they feature in the darkest grey levels of the original overexposed image, and so a new image consisting only of the darkest section is brought forward. The Hough transform is then applied to identify the lines present in the image, with the ρ and θ values corresponding to the lines present in the whitest points of the transform.
+
+<img src="https://github.com/user-attachments/assets/ac0aadd4-7784-4545-a23f-36eeba37884b" width="500">
+
+The values extracted from the Hough transform led to the following lines:
+
+<img src="https://github.com/user-attachments/assets/9410da7b-c94f-47ab-8fed-0aab3577a07b" width="500">
+
+The mobile robot section of this project is better viewed from the pdf files above.
