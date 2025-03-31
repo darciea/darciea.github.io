@@ -38,9 +38,9 @@ ninja.data = [{
           description: "A Wearable Sensor to Measure Fetal Movements",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_project.html";
-            },},{id: "projects-project-4",
-          title: 'project 4',
-          description: "another without an image",
+            },},{id: "projects-autonomous-mine-navigating-robot",
+          title: 'Autonomous Mine Navigating Robot',
+          description: "Mine Navigation Search and Rescue",
           section: "Projects",handler: () => {
               window.location.href = "/projects/4_project.html";
             },},{id: "projects-project-5",
