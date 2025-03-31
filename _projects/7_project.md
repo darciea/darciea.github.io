@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Computer Vision + Robot Locomotion
-description:
+title: Robotic vision
+description: Extracting path features from a spatial map and navigate a mobile car.
 img: assets/img/compvis.jpg
 importance: 1
 category: previous

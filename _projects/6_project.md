@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Menstrual Product Testing Rig
-description: Awarded Arup Prize for most meritorious 3rd year project.
+description: Design, make and test project to develop a rig to test menstrual products in a representative and replicable manner.
 img: assets/img/menstrual.jpg
 importance: 4
 category: previous
@@ -12,6 +12,8 @@ category: previous
         {% include figure.liquid loading="eager" path="assets/img/Brochure.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
+
+Awarded Arup Prize for most meritorious 3rd year project.
 
 This project aimed to model the internal conditions and properties of the vagina to test menstrual products in a representative and replicable manner. This resulted in the production of a silicone-based design and an exploration of a hydrogel material. This report briefly reviews the design and manufacture phases before discussing the testing stage and its results. The models were evaluated on their ability to (1) hold menstrual products for over 4-hours, and (2) allow menstrual fluid to pass through the canal with minimal losses. The first test placed menstrual products of varying dimensions and conditions into the models and monitored their position over 4-hours. The second test injected fluid into the canal at different flowrates over a 30-minute period and measured the mass at exit.
 

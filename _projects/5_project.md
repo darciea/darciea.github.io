@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Energy Saving Automatic Streetlights
-description:
+description: Implementing a working microprocessor based system to simulate automated streetlights.
 img: assets/img/streetlight.jpg
 importance: 3
 category: previous

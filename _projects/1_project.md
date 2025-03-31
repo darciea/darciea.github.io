@@ -1,7 +1,7 @@
 ---
 layout: page
 title: MNIST Digit Classifier
-description:
+description: Personal project to build, containerize and deploy an MNIST digit classifier.
 img: assets/img/MNIST.png
 importance: 1
 category: current

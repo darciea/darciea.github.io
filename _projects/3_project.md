@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Fetal Movement Monitor
-description: A Wearable Sensor to Measure Fetal Movements
+description: Master's Project on a multi-modal sensor device to recognise fetal movements using machine learning.
 img: assets/img/Lady.jpg
 importance: 3
 category: previous

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Robotics Manipulator
-description:
+description: Designing a 3 DoF manipulator and deriving its kinematics.
 img: assets/img/Manip.png
 importance: 2
 category: previous

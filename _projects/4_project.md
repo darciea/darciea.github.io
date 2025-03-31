@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Autonomous Mine Navigating Robot
-description: Mine Navigation Search and Rescue
+description: Programming a robot to navigate a maze using the PIC18F microcontroller.
 img: assets/img/maze.jpg
 importance: 3
 category: previous
