@@ -48,9 +48,9 @@ ninja.data = [{
           description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/5_project.html";
-            },},{id: "projects-project-6",
-          title: 'project 6',
-          description: "a project with no image",
+            },},{id: "projects-menstrual-product-testing-rig",
+          title: 'Menstrual Product Testing Rig',
+          description: "Awarded Arup Prize for most meritorious 3rd year project.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/6_project.html";
             },},{id: "projects-project-7",
