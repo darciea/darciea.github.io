@@ -6,6 +6,10 @@
 // Dimensions
 $max-content-width: {{ site.max_width }};
 
+.link-purple {
+  color: #c142b6;
+}
+
 @import
   "variables",
   "themes",
