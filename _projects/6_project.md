@@ -7,16 +7,35 @@ importance: 4
 category: previous
 ---
 
+British Standards exist for the testing of nappies and incontinence pads, but *not* for the testing of menstrual products such as tampons and towels. This project aims to address this inequality.
+
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/Brochure.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    <div class="col-sm mt-1 mb-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/Brochure.jpeg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
-Awarded Arup Prize for most meritorious 3rd year project.
+It builds upon a dissertation project which investigated the existing research into testing methodologies and from this proposed the outline design for a test setup. Our project aimed to develop this into a detailed design and *working prototype* enabling us to ensure the safety and efficacy of menstrual products and *democratize* both their testing and manufacture.
 
-This project aimed to model the internal conditions and properties of the vagina to test menstrual products in a representative and replicable manner. This resulted in the production of a silicone-based design and an exploration of a hydrogel material. This report briefly reviews the design and manufacture phases before discussing the testing stage and its results. The models were evaluated on their ability to (1) hold menstrual products for over 4-hours, and (2) allow menstrual fluid to pass through the canal with minimal losses. The first test placed menstrual products of varying dimensions and conditions into the models and monitored their position over 4-hours. The second test injected fluid into the canal at different flowrates over a 30-minute period and measured the mass at exit.
+The project was divided into three sub-groups:  
+- Internal Surfaces and Grip  
+- Fluid Injection
+- Chassis and Testing 
 
-The first test showed that the silicone model held both menstrual cups and full tampons but failed to hold dry tampons. The second test revealed that for all flowrates, at least 76% of the initial fluid mass was collected at exit. Overall, it was found that higher input flowrates improved fluid passage through the canal. In comparison, the hydrogel model held all tampons but did not accommodate the menstrual cups in test 1 and exhibited more fluid losses than predicted in test 2, due to dehydration over time.
+<div class="text-center mb-4">
+    <div class="col-sm mt-0 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/3rdDMT.jpeg" title="example image" class="img-fluid rounded z-depth-1 w-75" %}
+    </div>
+        <div class="text-muted small mt-2">🏆 Awarded Arup Prize for most meritorious 3rd year project.</div>
+</div>
 
-To conclude, the silicone model failed to hold certain products, but delivered fluid to a satisfactory standard. Recommendations to improve the silicone design include adjusting the dimensions of the product or the testing procedure in operation. Although the hydrogel model held all tampons tested, it was deemed unsuitable in quantifying fluid flow and absorbency, due to its own absorptive nature. Overall, the exploration revealed that the hydrogel is unsuitable for the current product, and if implemented, the design must be adjusted to account for its unique properties.
+As members of the *Internal Surfaces and Grip* team, we focused on modelling the internal environment and mechanical properties of the vagina to enable *realistic and repeatable* product testing.
+
+This led to the development of a silicone-based anatomical model, featuring an on–off temperature control system to keep the model at body temperature during tests.
+
+<div class="row">
+    <div class="col-sm mt-3 mb-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/poster.jpeg" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="text-muted small mt-2 text-center">Poster demonstrating the key aspects of our project.</div>
