@@ -1,75 +1,81 @@
 ---
 layout: page
 title: MNIST Digit Classifier
-description: Personal project to build, containerize and deploy an MNIST digit classifier.
+description: End-to-end project to build, containerize, and deploy a digit recognition application.
 img: assets/img/MNIST.png
 importance: 1
 category: current
 related_publications: false
 ---
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/MNIST.png" title="example image" class="img-fluid rounded z-depth-1" %}
+<div class="text-center mb-4">
+    <div class="col-sm mt-0 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/digit_recogniser.png" title="example image" class="img-fluid rounded z-depth-1 w-75" %}
     </div>
 </div>
 
-Personal project to build a small, end-to-end application on a self-managed server by building, containerizing and deploying an MNIST digit classifier.
 
-## 1. Developing Pytorch model
+A personal project to design and deploy an end-to-end digit classification system using the MNIST dataset. The pipeline includes model development, web front-end integration, database logging, and full containerization for deployment on a self-managed server.
 
-This will be trained locally, and with the MNIST dataset, a high level of accuracy ~95% should be achievable. I will develop a couple of models (a simple neural network and a convolutional neural network), just to play around and get familiar with Pytorch.
+---
 
-### Progress
+### 1. Model Development
 
-- Normalising the data according to MNIST dataset
-- Created a Simple Linear NN and achieved 97.33% accuracy on the MNIST dataset
-- Created a Convolutional NN and achieved 98.42% accuracy - ConvNets are better for Image processing
 
-### Improvements
+Using PyTorch, two models were developed and trained locally:
 
-- Write a predict function for easy implementation for the Streamlit section
-- Save various models for loading into the Streamlit
+- **Simple Neural Network:** Achieved 97.33% accuracy.
+- **Convolutional Neural Network (CNN):** Achieved 98.42% accuracy. As expected, CNNs outperform standard feedforward networks in image-based tasks.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/MNIST_NN.png" title="example image" class="img-fluid rounded z-depth-1" %}
+
+**Progress:**
+
+- Preprocessing with normalization specific to the MNIST dataset.
+- Implemented and compared multiple model architectures.
+- Saved models for downstream use in the Streamlit interface.
+
+**Next Steps:**
+
+- Write a utility `predict()` function to streamline web integration.
+- Store and version trained models for reproducibility.
+
+<div class="text-center mb-4">
+    <div class="col-sm mt-0 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/MNIST.png" title="example image" class="img-fluid rounded z-depth-1 w-75" %}
     </div>
 </div>
-<div class="caption">
-    Convolutional Neural Network used.
-</div>
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/MNIST_results.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Accuracy results.
-</div>
 
-## 2. Creating an Interactive Front-End
+---
 
-I will create a web interface (Streamlit) so that users can draw a digit on a canvas or input area that will be input into the model, obtaining the prediction, confidence and receive the true label to gather feedback.
+## 2. Interactive Web Front-End (Streamlit)
 
-### Progress
+A Streamlit-based web application allows users to draw digits directly on a canvas. The image is preprocessed and passed to the model for real-time prediction.
 
-- Have created the drawable canvas and preprocessed the resulting image
-- Have implemented the model to make predictions on the image and return the prediction and confidence in the prediction
+
+**Progress:**
+
+- Implemented an interactive canvas for digit input.
+- Integrated the model to return predictions and confidence scores.
 
 Include picture of interface.
 
-### Improvements
+**Next Steps:**
 
-- Create sections to allow results back from different models for the same image to compare predictions
-- Improve the readability / layout
+- Add functionality to compare predictions from different models.
+- Improve UI layout and usability.
+- (Optional) Embed a demo video or screenshots of the UI.
 
-Include video if possible.
+---
 
-## 3. Logging the attempts into a PostgreSQL database
+## 3. Data Logging (PostgreSQL)
 
-Each time a prediction is made, the details are logged into a PostgreSQL database, including the timestamp, predicted digit, user-provided true label, confidence and, if the predicted digit does not match the true label, then the second highest probability guess is also recorded.
+All predictions made via the interface are logged to a PostgreSQL database. Logged data includes:
+- Timestamp
+- Predicted digit
+- User-provided true label
+- Confidence score
+- Second-highest prediction (if initial prediction is incorrect)
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -77,17 +83,35 @@ Each time a prediction is made, the details are logged into a PostgreSQL databas
     </div>
 </div>
 <div class="caption">
-    Examples of logged inputs.
+    Example of structured logs stored in PostgreSQL.
 </div>
 
-It is also important to note that while the Pytorch models performed well with high accuracy on the test dataset, we are extrapolating by using that model on the images provided by the drawable canvas. While normalised in the same way, there is a clear discrepancy between how the model performs on the images provided by the web interface. Further inspection of the database will likely reveal where the discrepancies are.
+Note: While model accuracy is high on MNIST test data, real-world inputs from the canvas may degrade performance. Ongoing analysis of logged data helps identify these gaps.
 
-# Left to do
+---
 
-## 4. Containerization
+## 4. Containerization (Docker)
 
-The Pytorch model/service, Streamlit web app and PostgreSQL databas will be containerized into Docker. Docker Compose will then me used to define the multi-container setup in a docker-compose.yml file.
+All components — PyTorch service, Streamlit app, and PostgreSQL — will be containerized using Docker.
+
+**Planned Setup:**
+
+- Dockerfiles for model service and Streamlit frontend
+- PostgreSQL container with persistent volumes
+- Docker Compose file to orchestrate the stack
+
+---
 
 ## 5. Deployment
 
-The deployment end-to-end will be controlled on a self-managed server where Docker can be installed. The containerized application will then be deployed to this server which will then be made accessible via a public IP or domain.
+The final system will be deployed on a self-hosted server using Docker Compose. The server will be publicly accessible via domain or IP.
+
+**Planned Tasks:**
+
+- Configure server firewall and DNS (if needed)
+- Set up Docker Compose with appropriate environment variables and volumes
+- Ensure auto-restart and uptime monitoring
+
+---
+
+This project demonstrates a full-stack ML application lifecycle — from model training to real-world deployment. It’s also a learning opportunity in DevOps, containerization, and interactive user interfaces for ML applications.
