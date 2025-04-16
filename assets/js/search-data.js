@@ -30,7 +30,7 @@ ninja.data = [{
               window.location.href = "/projects/1_project.html";
             },},{id: "projects-robotics-manipulator",
           title: 'Robotics Manipulator',
-          description: "Designing a 3 DoF manipulator and deriving its kinematics.",
+          description: "Designing a 4 DoF manipulator and deriving its kinematics.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_project.html";
             },},{id: "projects-fetal-movement-monitor",
