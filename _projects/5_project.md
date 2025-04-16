@@ -6,34 +6,46 @@ img: assets/img/streetlight.jpg
 importance: 3
 category: previous
 ---
+<div class="container" style="max-width: 100%; margin: 0 auto; margin-bottom: 2rem">
+  <div class="row justify-content-center align-items-center">
+    <!-- First image (2/3 of the width) -->
+    <div class="col-md-6 mt-2 mt-md-0 text-center">
+      {% include figure.liquid loading="eager" path="assets/img/streetlight.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <!-- Second image (1/3 of the width) -->
+    <div class="col-md-3 mt-2 mt-md-0 text-center">
+      {% include figure.liquid loading="eager" path="assets/img/light.png" title="example image" class="img-fluid rounded z-depth-1 w-80" %}
+    </div>
+  </div>
+</div>
 
-## Learning outcomes
+#### **Scenario:**
+Outside lights that respond to ambient light levels are commonplace (i.e. street lights, porch lights, garden lights etc). These types of lights switch on at dusk and then turn off at dawn. However, energy and money can be saved if these lights are switched off during the small hours of the morning (for example, between 1am and 5am), when there are very few people around. [Many councils in the UK have trialled this idea for street lights.](https://www.bbc.co.uk/news/uk-england-derbyshire-16811386)
 
-The principal learning objectives for this project are:
+#### **Task:**
+The challenge is to design and program a device that fulfills the following requirements:
 
-- Implement a working microprocessor based system to achieve a more complex real world task
-- Develop ability to independently plan, organise and structure your code
-- Improve grasp of the C language and writing your own functions
+1. Monitors ambient light levels using a Light Dependent Resistor (LDR) and turns on an LED in low-light conditions (i.e., at night) and off in bright conditions (i.e., during the day).
+2. Displays the current hour of the day on an LED array in binary.
+3. Automatically turns off the light between approximately 1 am and 5 am.
+4. Adjusts for daylight savings time.
+5. Maintains synchronization with the sun indefinitely, accounting for changes throughout the year.
+6. Operates completely automatically, requiring no maintenance after installation.
 
-## Brief
+---
+#### **Our Solution**
 
-Outside lights that respond to ambient light levels are commonplace (i.e. street lights, porch lights, garden lights etc). These types of lights switch on at dusk and then turn off at dawn. However, energy and money can be saved if these lights are switched off during the small hours of the morning (for example, between 1am and 5am), when there are very few people around. Many councils in the UK have implemented/trialled this idea for street lights (https://www.bbc.co.uk/news/uk-england-derbyshire-16811386). Your task is to use the knowledge of microcontrollers and hardware that you have gained in labs 1-3 from this module to develop a fully automated solution.
+Our solution relies on the predictable nature of the sun's rise and set times, ensuring that it rises and sets exactly once per day. The program is designed to account for the fact that it is dark at midnight, and sunset occurs before midnight. However, issues may arise if the system's timer is more than two hours out of sync with the solar clock, such as when entering or exiting Daylight Saving Time (DST).
 
-## Specification
+[Watch a demonstration here](https://www.youtube.com/watch?v=prrxO2kyVkE)
 
-Design and program a device that meets the following requirements:
+#### **Initialization Process:**
+To correctly initialize the program, the following parameters must be manually set in the `main.c` file before the system begins:
 
-1. Monitors light level with the LDR and turns on an LED in low light conditions (i.e. night-time) and off in bright conditions (i.e. daytime)
-1. Displays the current hour of day on the LED array in binary
-1. Turns the light off between approx. 1am and 5am
-1. Adjusts for daylight savings time
-1. Maintain synchronicity with the sun indefinitely
-1. Be fully automatic (requires zero maintenance after installation)
+- Day of the week (0 = Sunday, 6 = Saturday)
+- Day of the month
+- Month
+- Year
+- DST status (whether in Daylight Saving Time or not)
 
-## Our solution
-
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/prrxO2kyVkE/0.jpg)](https://www.youtube.com/watch?v=prrxO2kyVkE)
-
-This program relies on the fact that the sun rises and sets exactly once a day (ie a major eclipse may cause problems), and that it is dark at midnight (ie sunset occurs before midnight). This program should be initiated before the sun rises on the day to avoid difficulties. Potential issues may also arise if the timer is 2 hours or more out of sync with the solar clock on the day when the clocks are changing due to entering or exiting DST.
-
-To correctly start the program, you must first manually initialise the day (0 = Sunday, 6 = Saturday), the day of the month, the month and the year, and whether we are in DST or not in the main.c file, and the hour and minute should be set in the interrupts.h file.
+Additionally, the hour and minute must be set in the `interrupts.h` file for proper synchronization.
