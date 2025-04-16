@@ -7,66 +7,68 @@ importance: 3
 category: previous
 ---
 
-### Brief
+<div class="text-center mb-4">
+    <div class="col-sm mt-0 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/mazegif.gif" title="Autonomous Robot Navigating Maze" class="img-fluid rounded z-depth-1 w-50" %}
+    </div>
+</div>
 
-Scenario:
-Operations are currently underway to map an abandoned mine for safety and possible future use. A team of workers has gone into the mine as a part of initial exploration. One member of the team became separated from others and is currently missing. All explorers were asked to lay flags at certain distances on their path of travel inside the mine. It is too dangerous to send another person to look in the region where the explorer has been separated. Furthermore, the communications in the abandoned mine are too unstable for a robot to be remote controlled to look for the separated explorer.
+#### **Scenario:**
+Operations are underway to map an abandoned mine for safety and possible future use. A team of workers has entered the mine as part of initial exploration, but one member of the team became separated and is currently missing. All explorers were instructed to place flags at specific intervals along their paths inside the mine. It is too dangerous to send another person to search the area where the explorer went missing, and the mine's communications are too unstable for remote-controlled robots. 
 
-Your task is to design a control system for an autonomous robot to locate the flags laid by the explorer and find where they are located. The robot must then return to its original location with a full trace of its route such that a larger robot or, if necessary, manned team, can locate and extract the explorer.
+#### **Task:**
+Design a control system for an autonomous robot to locate the flags laid by the explorer and determine their location. The robot must then return to its starting point, leaving behind a trace of its route so that a larger robot, or even a manned team, can locate and extract the explorer. The robot must be able to:
 
-This robot must be able to perform the following:
+1. Navigate towards a colored card and stop before impacting it.
+2. Read the card’s color.
+3. Interpret the card color using a predefined code and execute the navigation command.
+4. Upon reaching the final card, return to the starting point.
+5. Handle exceptions and navigate back if the final card is not found.
 
-1. Navigate towards a coloured card and stop before impacting the card
-2. Read the card colour
-3. Interpret the card colour using a predefined code and perform the navigation instruction
-4. When the final card is reached, navigate back to the starting position
-5. Handle exceptions and return back to the starting position if final card cannot be found
+---
 
-### "Mine" environment specification
+### **Our Solution**
 
-A "mine" is contstructed from black plywood walls 100mm high with some walls having coloured cards located on the sides of the maze to assist with navigation. The following colour code is to be used for navigation:
+<div class="container" style="max-width: 80%; margin: 0 auto;">
+  <div class="row">
+    <!-- First image (2/3 of the width) -->
+    <div class="col-md-7 mt-3 mt-md-0 text-center">
+      {% include figure.liquid loading="eager" path="assets/img/buggy.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
 
-| Colour     | Instruction                        |
-| ---------- | ---------------------------------- |
-| Red        | Turn Right 90                      |
-| Green      | Turn Left 90                       |
-| Blue       | Turn 180                           |
-| Yellow     | Reverse 1 square and turn right 90 |
-| Pink       | Reverse 1 square and turn left 90  |
-| Orange     | Turn Right 135                     |
-| Light blue | Turn Left 135                      |
-| White      | Finish (return home)               |
-| Black      | Maze wall colour                   |
+    <!-- Second image (1/3 of the width) -->
+    <div class="col-md-4 mt-3 mt-md-0 text-center">
+      {% include figure.liquid loading="eager" path="assets/img/maze.png" title="example image" class="img-fluid rounded z-depth-1 w-100" %}
+    </div>
+  </div>
+  <div class="caption text-center mt-2"> PIC18F Buggy navigating the hard maze. </div>
+</div>
 
-Mine courses will vary in difficulty, with the simplest requiring 4 basic moves to navigate. More advanced courses may require 10 or moves to navigate. The mines may have features such as dead ends but colour cards will always direct you to the end of the maze. Once the end of the maze has been reached, you must return to the starting position. An example course to navigate is shown below. You do not know in advance which colours will be in the course or how many.
+To start the robot within the maze, press the RF2 button when the robot is in the correct position. Once the button is pressed, the robot will move forward, recording the time taken and continuously reading the clear sensor. When the sensor reading exceeds a specific threshold, the robot enters the card reading sequence. The robot records the time to reach the card, reads the color of the card in front of it, and responds accordingly. Each card's color is stored in an array, and the robot repeats this process until it reads the white card. At this point, the robot enters the *ReturnHome* sequence, reversing its course by following the recorded times and executing the opposite commands for each card.
 
-(Include gif here)
+---
 
-## Our solution
+### **Color Detection and Response Methodology**
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ieVXnOMHYYI/0.jpg)](https://www.youtube.com/watch?v=ieVXnOMHYYI)
+The robot is initialized with a calibration routine to populate a 4x9 array with the expected readings for each color sensor (RGBC) corresponding to each colored card. After a button press, the robot collects three readings from each sensor, calculating the average for each. The calibration sequence follows this order: red, green, blue, yellow, pink, orange, light blue, white, and black. The RF2 button triggers the reading of each card.
 
-To start the program within the maze, the RF2 button should be pressed when the buggy is in the appropriate position and is ready to start the program. Once the button is pressed, the buggy will move forward, recording the time taken, continuously reading the clear sensor reading until the clear sensor reads a reading above a certain threshold. This triggers the sequence of commands that stores the time taken to reach the card, reads the card in front of the buggy and responds appropriately, and then storing the card read in the aforementioned array. The buggy then repeats the steps until the white card is read. Then it enters the ReturnHome sequence, whithin which it turns around and iterates through the array, moving forward for the time stored, and executing the opposite commands to those corresponding to the stored cards.
+Once calibration is complete, the robot continuously monitors the clear sensor, and when its reading exceeds a predetermined threshold, the color detection sequence is activated. The robot compares the new readings to the expected values in the array. The card with the closest match is identified, and the corresponding action is performed.
 
-### Colour detection and response methodology
+---
 
-The robot is initiated with a calibration routine in which it fills an 4 by 9 array with the expected readings for each colour sensor (RGBC) for each colour card. Prompted by a button press, the buggy collects 3 data values for each colour sensor and calculates the average for each. The coloured cards follow the calibration sequence: red, green, blue, yellow, pink, orange, light blue, white and black, and the RF2 button input is used to trigger the next card being read.
-After all of the cards is read, there is one background reading of the clear sensor; this is used to determine the threshold value above which the card-reading sequence is initialised.
+### **Returning Home Methodology**
 
-Note that during calibration the card should be pushed up against the front of the buggy when the button is pressed - the buggy will then automatically move itself to the location where accuracy of reading is greatest, determined experimentally.
+Two arrays are introduced in the main function: `ReturnHomeTimes` and `ReturnHomeCards`. The `ReturnHomeTimes` array stores the time taken to reach each card, while `ReturnHomeCards` stores the corresponding cards. A timer interrupt overflows every 1/10th of a second, incrementing the `timerCount` each time the interrupt occurs. The robot counts the time it moves forward until a card is detected and responds to the color. As the robot navigates, the arrays are populated with the time and card information.
 
-To start, variables are created for each of the colour sensors, named red_read, green_read and blue_read, and these are often used to temporarily store the readings of the ColorClick before they are stored elsewhere. An array called expected_values is also created, and this is filled up with the values obtained from each of the colour sensors during the calibration sequence. For example, the first column of the array contains the expected red, green and blue readings for a red card. In the main while loop, a clear reading is constantly made, and if this exceeds a predetermined threshold the card reponse sequence is triggered. During this, the readings of the detected card are compared to the expected values for each calibrated card, and whichever card has the values which are closest to those in the new reading is predicted to be the card in front of the buggy. This is then used to execute the appropriate response.
+Upon detecting the white card, the *ReturnHome* sequence is triggered. The robot turns around 180 degrees and iterates through the arrays in reverse order, moving forward for the time stored in the corresponding `ReturnHomeTimes` array. The robot then executes the opposite navigation commands based on the `ReturnHomeCards` array. This process continues until the robot reaches the start.
 
-### Returning home methodology
+Note: Each entry in `ReturnHomeTimes` corresponds to the same index in `ReturnHomeCards`, ensuring that the robot performs the correct reverse actions.
 
-The main function introduces two arrays, one that holds the time counted by the timer interrupt between cards ReturnHomeTimes, and the other that holds the cards seen on the journey of the buggy, ReturnHomeCards.
-A timer is written that overflows every 1/10 second, and the number of times it overflows is counted in the main (where the while loop iterates constantly and therefore is incrementing the timercount every time it detects an overflow), until the buggy detects a card in front of it, therefore counting the time that the buggy moved forward. The buggy then responds to the colour of the card and records the card in the array. As the buggy moves through the maze, both arrays are filled with the time taken to get to each card, and what card it saw.
-Once the buggy detects a white card, this initiates the return home sequence. The buggy turns around 180 degrees and iterates through the array backwards (skipping past any empty elements). The buggy starts moving forward for the time dictated in the last filled element of the array, and when it stops it carries out the appropriate home response function (i.e. the inverse of the original commands). It then moves to the penultimate element, moves forward for that time and repeats this process until the buggy returns to the start.
+---
 
-Note that the ReturnHomeTimes stores the time taken to reach the ReturnHomeCards value of the same index. This means that when the return home function is called (ie the white card is detected), it first reads the most recent time, then lowers the index by one, then responds to the card of that index, then responds to the timer of that index, then lowers the index by one, etc...
+### **Videos**
 
-### Videos
+- [Buggy Running the Test Maze](https://youtu.be/ieVXnOMHYYI)
+- [Buggy Running the Easy Maze](https://youtube.com/shorts/kAJKZJEhZO8?feature=share)
+- [Buggy Running the Hard Maze](https://youtu.be/YRGQFnze7Yo)
 
-The video of the buggy running the test maze is found here: https://youtu.be/ieVXnOMHYYI
-The video of the buggy running the easy maze is found here: https://youtube.com/shorts/kAJKZJEhZO8?feature=share
-The video of the buggy running the hard maze is found here: https://youtu.be/YRGQFnze7Yo
