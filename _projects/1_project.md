@@ -92,26 +92,52 @@ Note: While model accuracy is high on MNIST test data, real-world inputs from th
 
 ## 4. Containerization (Docker)
 
-All components — PyTorch service, Streamlit app, and PostgreSQL — will be containerized using Docker.
+All components of the application — PyTorch service, Streamlit app, and PostgreSQL — have been containerized using Docker.
 
-**Planned Setup:**
+- **Streamlit App Dockerfile**: A Dockerfile has been created for the Streamlit app, allowing it to run with all the necessary dependencies.
+  
+- **PostgreSQL Database Containerization**: A PostgreSQL database is also containerized with Docker, which includes persistent volumes for data storage. This ensures that database data persists even if the container is restarted.
 
-- Dockerfiles for model service and Streamlit frontend
-- PostgreSQL container with persistent volumes
-- Docker Compose file to orchestrate the stack
+- **Docker Compose**: Docker Compose is used to orchestrate the multi-container application, managing both the Streamlit frontend and PostgreSQL database. The Compose file includes environment variables for PostgreSQL credentials and the application, facilitating the setup of the entire stack with a single command.
+
+- **Docker Volumes**: Volumes are used to persist PostgreSQL data. This ensures that even if the container is restarted or destroyed, the data remains intact.
 
 ---
 
 ## 5. Deployment
 
-The final system will be deployed on a self-hosted server using Docker Compose. The server will be publicly accessible via domain or IP.
+The final system has been deployed using **Render** for hosting and **Supabase** for PostgreSQL (as these are free resources). Docker Compose handles the orchestration of services. The system is designed to be publicly accessible via domain or IP and provides an end-to-end solution for MNIST digit classification.
 
-**Planned Tasks:**
+- **Supabase Integration**: The PostgreSQL database, initially running within a Docker container, has been moved to **Supabase** for production purposes. This allows the app to use a managed cloud database while keeping the rest of the stack containerized.
 
-- Configure server firewall and DNS (if needed)
-- Set up Docker Compose with appropriate environment variables and volumes
-- Ensure auto-restart and uptime monitoring
+- **Render Deployment**: The application is deployed on **Render**, a cloud platform that supports Docker-based deployments, making it easy to scale and manage the application in a production environment.
+
+The final product is available to view at:  
+[https://mnist-digit-classifier-b4sz.onrender.com/](https://mnist-digit-classifier-b4sz.onrender.com/)
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/MNISTfinal.jpeg" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+<div class="caption">
+    Preview of the deployed product!
+</div>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/supabase.jpeg" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+<div class="caption">
+    Capture of the database as currently held in Supabase :)
+</div>
+
 
 ---
 
-This project demonstrates a full-stack ML application lifecycle — from model training to real-world deployment. It’s also a learning opportunity in DevOps, containerization, and interactive user interfaces for ML applications.
+This project introduced me to a full-stack ML application lifecycle — from model training to real-world deployment. It was a valuable learning opportunity in DevOps, containerization, and interactive user interfaces for ML applications.
+
+**Additional Thoughts:** As the MNIST dataset is a collection of handwritten data, using the model on the digits drawn on the drawable canvas means that the predictions are extrapolated, and therefore does not have the greatest accuracy. While I achieved my goal of carrying out an end-to-end application, there are definitely a few improvements that could be made, such as saving the images to allow the model to learn from its errors. Maybe next time!
