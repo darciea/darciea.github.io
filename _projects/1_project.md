@@ -114,6 +114,7 @@ The final system has been deployed using **Render** for hosting and **Supabase**
 
 The final product is available to view at:  
 [https://mnist-digit-classifier-b4sz.onrender.com/](https://mnist-digit-classifier-b4sz.onrender.com/)
+(However, I have used a free server, so when the page has not been visited for a while, there is a fairly long wait before it loads)
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
