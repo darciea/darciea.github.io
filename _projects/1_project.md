@@ -4,7 +4,7 @@ title: MNIST Digit Classifier
 description: End-to-end project to build, containerize, and deploy a digit recognition application.
 img: assets/img/MNIST.png
 importance: 1
-category: current
+category: previous
 related_publications: false
 ---
 

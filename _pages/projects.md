@@ -5,7 +5,7 @@ permalink: /projects/
 description: Here are the technical projects I've done to date.
 nav: true
 nav_order: 3
-display_categories: [current, previous]
+display_categories: [previous]
 horizontal: false
 ---
 

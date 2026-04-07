@@ -6,12 +6,46 @@
       year: 2024
       description:
         - First Class Honours
-        - "Relevant modules: Advanced Control (81%), Introduction to Robotics (81%), Future Clean Transport Technology (73%), Human Neuromechanical Control and Learning (67%), Machine Learning (66%)"
+        - "Relevant modules: Machine Learning, Advanced Control, Introduction to Robotics, Human Neuromechanical Control and Learning"
     - title: Wimbledon High School
       institution: Wimbledon High School, London
       year: 2012 - 2019
       description:
         - Awarded GDST Lorna Cocking Scholarship and HSBC Scholarship
+
+- title: Work Experience
+  type: time_table
+  contents:
+    - title: Associate AI Innovation Engineer
+      institution: Dojo
+      year: September 2025
+      description:
+        - Architected an agentic AI system for merchant risk assessment, scoping requirements with product stakeholders and orchestrating LLM chains with external API integration and structured output parsing to deliver end-to-end automation.
+        - Built a RAG-powered knowledge assistant on Vertex AI using LangChain and embedding-based retrieval, enabling CS advisors to query internal documentation via natural language, replacing manual document searches.
+        - Deployed AI services to GCP using Terraform for infrastructure-as-code and GitHub Actions for CI/CD, building production-grade pipelines within an Akka-based microservices architecture.
+    - title: Research Intern
+      institution: PAIR Lab, Imperial College London
+      year: June - August 2025
+      description:
+        - Designed and ran a human-robot interaction study investigating how robot authority roles (peer vs. leader) influence human decision-making in collaborative rescue scenarios.
+        - Built a mission-style experimental interface in Python (Tkinter) and programmed Nao and Misty robots via their Python SDKs to deliver autonomous verbal and gestural behaviours for controlled, repeatable trials.
+    - title: Preschool Teacher
+      institution: Keren's Nursery
+      year: 2022-2024
+      description:
+        - Undertook a full-time role during a pause from studies, gaining valuable soft skills through experience in a contrasting employment sector
+    - title: Physics Teaching Internship
+      institution: Department for Education
+      year: July 2023
+      description:
+        - Delivered a careers talk to female students interested in STEM, showcasing university projects and offering insights into pursuing further education in engineering.
+        - Taught and assisted in Physics lessons, demonstrating competency in explaining complex concepts clearly to students of varying abilities.
+    - title: Python, Maths, Physics Tutor
+      institution: FireTech Coding Camp Leader
+      year: 2022-2024
+      description:
+        - Led week-long Python coding camps for young teens, introducing them to programming fundamentals and fostering problem-solving skills.
+        - Regularly tutored students in A-Level and GCSE Maths and Physics.
 
 - title: Engineering Projects
   type: time_table
@@ -53,27 +87,6 @@
       description:
         - Founded the new Women in Mechanical Engineering Society at Imperial College to address the challenges of gender inequality in STEM.
         - Created a supportive community and provided opportunities for female students in a male-dominated field.
-
-- title: Work Experience
-  type: time_table
-  contents:
-    - title: Preschool Teacher
-      institution: Keren’s Nursery
-      year: 2022-2024
-      description:
-        - Undertook a full-time role during a pause from studies, gaining valuable soft skills through experience in a contrasting employment sector
-    - title: Physics Teaching Internship
-      institution: Department for Education
-      year: July 2023
-      description:
-        - Delivered a careers talk to female students interested in STEM, showcasing university projects and offering insights into pursuing further education in engineering.
-        - Taught and assisted in Physics lessons, demonstrating competency in explaining complex concepts clearly to students of varying abilities.
-    - title: Python, Maths, Physics Tutor
-      institution: FireTech Coding Camp Leader
-      year: 2022-2024
-      description:
-        - Led week-long Python coding camps for young teens, introducing them to programming fundamentals and fostering problem-solving skills.
-        - Regularly tutored students in A-Level and GCSE Maths and Physics.
 
 - title: Other Interests
   type: list

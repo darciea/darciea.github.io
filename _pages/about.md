@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Social Robotics | Affective Computing | Embodied Intelligence
+subtitle: Agentic AI | RAG Systems | Human-AI Interaction
 
 profile:
   align: right
@@ -19,11 +19,13 @@ announcements:
   limit: 5 # leave blank to include all the news in the `_news` folder
 ---
 
-I am an MEng Mechanical Engineering graduate from Imperial College London, currently seeking to further <span class="link-purple">enhance my research expertise</span> in preparation for pursuing a PhD in the field of Social Robotics, with a particular focus on applications in <span class="link-purple">education and healthcare.</span>
 
-My research interests are rooted in the intersection of <span class="link-purple">HCI and Robotics</span>, with a specific focus on embodied intelligence and affective computing. I am passionate about exploring the potential of <span class="link-purple">assistive technologies</span> to support vulnerable populations and how intelligent systems can be leveraged to enhance human experience and societal well-being.
 
-As I embark on the next step of my academic career, I am excited to collaborate with like-minded researchers and contribute to the growing field of <span class="link-purple">social robotics</span>, with the aim of developing intelligent, empathetic systems that not only enhance learning and healthcare experiences but also make a meaningful, lasting impact on society as a whole.
+AI Engineer with a First-Class MEng from Imperial College London, <span class="link-purple">building agentic LLM systems end-to-end</span>, from stakeholder scoping to production deployment on cloud infrastructure. My work sits at the intersection of <span class="link-purple">large language models</span> and <span class="link-purple">human-computer interaction</span>, driven by a belief that the best AI is built around the people who use it.
+
+At Dojo, I architected agentic workflows for merchant risk assessment, built <span class="link-purple">RAG-powered knowledge assistants</span> on GCP, and shipped production services using LangChain, Terraform, and CI/CD pipelines. My background in robotics and human-factors research gives me a sharp eye for how people interact with intelligent systems — and a deep conviction that the most important AI work makes complex capabilities accessible to those who need them most.
+
+I'm particularly drawn to AI applications in <span class="link-purple">healthcare</span>, <span class="link-purple">education</span>, and <span class="link-purple">assistive technology</span> — spaces where thoughtful engineering can genuinely improve lives. Whether it's helping clinicians surface the right information or making learning more adaptive and inclusive, I want to build intelligent systems that serve people, not just processes.
 
 
 
